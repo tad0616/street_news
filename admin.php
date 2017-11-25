@@ -49,27 +49,7 @@ function insert_article()
     $db->query($sql) or die($db->error);
     $sn = $db->insert_id;
 
-    if (isset($_FILES)) {
-        require_once 'class.upload.php';
-        $foo = new Upload($_FILES['pic']);
-        if ($foo->uploaded) {
-            // save uploaded image with a new name
-            $foo->file_new_name_body = 'cover_' . $sn;
-            $foo->image_resize       = true;
-            $foo->image_convert      = png;
-            $foo->image_x            = 1200;
-            $foo->image_ratio_y      = true;
-            $foo->Process('uploads/');
-            if ($foo->processed) {
-                $foo->file_new_name_body = 'thumb_' . $sn;
-                $foo->image_resize       = true;
-                $foo->image_convert      = png;
-                $foo->image_x            = 400;
-                $foo->image_ratio_y      = true;
-                $foo->Process('uploads/');
-            }
-        }
-    }
+    upload_pic($sn);
 
     return $sn;
 }
@@ -93,6 +73,15 @@ function update_article($sn)
     $sql = "UPDATE `article` SET `title`='{$title}', `content`='{$content}', `update_time`= NOW() WHERE `sn`='{$sn}'";
     $db->query($sql) or die($db->error);
 
+    upload_pic($sn);
+
+    return $sn;
+}
+
+//上傳團片
+function upload_pic($sn)
+{
+
     if (isset($_FILES)) {
         require_once 'class.upload.php';
         $foo = new Upload($_FILES['pic']);
@@ -114,6 +103,4 @@ function update_article($sn)
             }
         }
     }
-
-    return $sn;
 }

@@ -28,7 +28,7 @@
 <script>
     CKEDITOR.replace('content');
     $(document).ready(function () {
-        $('#myform').validationEngine();
+        $('#myform').validationEngine({ promptPosition: "bottomLeft" });
     });
 
 </script>

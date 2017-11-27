@@ -1,9 +1,3 @@
--- Adminer 4.2.5 MySQL dump
-
-SET NAMES utf8;
-SET time_zone = '+00:00';
-SET foreign_key_checks = 0;
-SET sql_mode = 'NO_AUTO_VALUE_ON_ZERO';
 
 DROP TABLE IF EXISTS `article`;
 CREATE TABLE `article` (
@@ -42,5 +36,3 @@ CREATE TABLE `members` (
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
--- 2017-11-18 01:22:50

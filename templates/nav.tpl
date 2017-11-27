@@ -11,13 +11,15 @@
             <a href="index.php" class="nav-link text-white">首頁</a>
             <a href="index.php" class="nav-link text-white">編輯精選</a>
             <a href="index.php" class="nav-link text-white">街巷故事</a>
-            <a href="index.php" class="nav-link text-white">市井觀點</a>
-            <a href="index.php" class="nav-link text-white">私房知識塾</a>
+            <a href="point.php" class="nav-link text-white">市井觀點</a>
+            <a href="class.php" class="nav-link text-white">私房知識塾</a>
+            <a href="index.php?op=submission" class="nav-link text-white">投稿</a>
         </div>
 
         <div class="navbar-nav">
         {if isset($smarty.session.username)}
-            <a href="admin.php?op=article_form" class="nav-link text-white">發布</a>
+            <!-- <a href="admin.php?op=article_form" class="nav-link text-white">發布</a> -->
+            <a href="picked.php" class="nav-link text-white">精選管理</a>
             <a href="logout.php" class="nav-link text-white">登出</a>
         {else} 
             <a href="signup.php" class="nav-link text-white">註冊</a>

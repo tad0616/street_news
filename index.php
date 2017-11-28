@@ -14,6 +14,7 @@ switch ($op) {
             $op = 'show_article';
         } else {
             list_article();
+            list_focus();
             $op = 'list_article';
         }
         break;
@@ -39,4 +40,21 @@ function list_article()
     }
     // die(var_export($all));
     $smarty->assign('all', $all);
+}
+//讀出所有精選
+function list_focus()
+{
+    global $db, $smarty;
+
+    $sql    = "SELECT * FROM `article` WHERE `focus`='1' ORDER BY `update_time` DESC";
+    $result = $db->query($sql) or die($db->error);
+    $all    = [];
+    $i      = 0;
+    while ($data = $result->fetch_assoc()) {
+        $all[$i]            = $data;
+        $all[$i]['summary'] = mb_substr(strip_tags($data['content']), 0, 90);
+        $i++;
+    }
+    // die(var_export($all));
+    $smarty->assign('allslide', $all);
 }

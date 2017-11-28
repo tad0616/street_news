@@ -71,6 +71,9 @@ footer{
   margin-top: 20px;
   padding-bottom: 30px;
 }
+.img-container2 .card-text li {
+  margin-bottom: .75rem;
+}
 
 /************* end 內文樣式 ***************/
 

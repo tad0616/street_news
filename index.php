@@ -6,7 +6,13 @@ $page_title = '首頁';
 
 $op = isset($_REQUEST['op']) ? filter_var($_REQUEST['op']) : '';
 $sn = isset($_REQUEST['sn']) ? (int) $_REQUEST['sn'] : 0;
+
+/*************控制器**************/
+
 switch ($op) {
+    case 'submission':
+        $op = 'submission';
+        break;
 
     default:
         if ($sn) {

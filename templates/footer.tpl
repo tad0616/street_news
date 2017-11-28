@@ -21,12 +21,12 @@
 
 
         // $('.img-container').css('width', $(window).width());
-        $('.img-container').css('height', $(window).height());
+        $('.img-container').css('height', $(window).height()-120);
     });
 
     $(window).resize(function () {
         // $('.img-container').css('width', $(window).width());
-        $('.img-container').css('height', $(window).height());
+        $('.img-container').css('height', $(window).height()-120);
     });
 </script>
 <!-- <script src="http://more.handlino.com/javascripts/moretext-1.2.js" type="text/javascript"></script> -->

@@ -3,6 +3,7 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
+require_once 'setup.php';
 require_once 'function.php';
 require_once 'smarty/libs/Smarty.class.php';
 $smarty = new Smarty;

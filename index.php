@@ -35,12 +35,12 @@ function list_article()
 {
     global $db, $smarty;
 
-    $sql    = "SELECT * FROM `article` ORDER BY `update_time` DESC LIMIT 0,9";
+    $sql = "SELECT * FROM `article` ORDER BY `update_time` DESC LIMIT 0,9";
     $result = $db->query($sql) or die($db->error);
-    $all    = [];
-    $i      = 0;
+    $all = array();
+    $i = 0;
     while ($data = $result->fetch_assoc()) {
-        $all[$i]            = $data;
+        $all[$i] = $data;
         $all[$i]['summary'] = mb_substr(strip_tags($data['content']), 0, 90);
         $i++;
     }
@@ -52,12 +52,12 @@ function list_focus()
 {
     global $db, $smarty;
 
-    $sql    = "SELECT * FROM `article` WHERE `focus`='1' ORDER BY `update_time` DESC";
+    $sql = "SELECT * FROM `article` WHERE `focus`='1' ORDER BY `update_time` DESC";
     $result = $db->query($sql) or die($db->error);
-    $all    = [];
-    $i      = 0;
+    $all = array();
+    $i = 0;
     while ($data = $result->fetch_assoc()) {
-        $all[$i]            = $data;
+        $all[$i] = $data;
         $all[$i]['summary'] = mb_substr(strip_tags($data['content']), 0, 90);
         $i++;
     }

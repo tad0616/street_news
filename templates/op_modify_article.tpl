@@ -14,8 +14,22 @@
             <textarea name="content" id="content" rows="20" class="form-control validate[required, minSize[10]]" placeholder="請輸入文章內容">{$article.content}</textarea>
         </div>
         <div class="form-group">
-            <label for="title" class="col-form-label sr-only">封面圖</label>
-            <input type="file" class="form-control" name="pic" id="pic" placeholder="請上傳一張封面圖">
+            <div class="row">
+                <label class="col-12" for="pic">上傳特色圖片</label>
+                <div class="col-12">
+                    {assign var="cover" value="uploads/thumb_{$article.sn}.png"}
+                    <!-- 指派和上傳圖檔相同的路徑給$cover -->
+                    {if file_exists($cover)}
+                    <!-- 如果$cover有得到值 -->
+                    <img src="{$cover}" alt="{$post.title}" style="width:200px;"> 
+                    {else}
+                    <img src="http://fakeimg.pl/200x120/aaaaaa/EAE0D0/?text=REPORTER" alt="{$post.title}">                                        
+                    {/if}
+                    <small class="form-text text-muted" style="font-size:1rem;">目前圖片，上傳新的圖片將會替換此圖</small>
+                    <input type="file" class="form-control" name="pic" id="pic" placeholder="上傳文章封面照片" aria-describedby="fileHelpId" style="font-size:1rem;">
+                    <small id="fileHelpId" class="form-text text-muted" style="font-size:1rem;">建議尺寸：1200x630</small>
+                </div>
+            </div>
         </div>
         <div class="text-center">
             <input type="hidden" name="sn" value="{$article.sn}">

@@ -1,9 +1,5 @@
-<div class="img-container">
-    <div class="container">
 
-    </div>
-</div>
-
+{include file="op_slider.tpl"}
 <div class="container">
     <h1 class="my-3 text-center">最新文章</h1>
     <div class="row">

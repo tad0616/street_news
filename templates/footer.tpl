@@ -21,12 +21,14 @@
 
 
         // $('.img-container').css('width', $(window).width());
-        $('.img-container').css('height', $(window).height());
+        $('.img-container').css('height', $(window).height()-120);
+        $('.img-container2').css('height', $(window).height());
     });
 
     $(window).resize(function () {
         // $('.img-container').css('width', $(window).width());
-        $('.img-container').css('height', $(window).height());
+        $('.img-container').css('height', $(window).height()-120);
+        $('.img-container2').css('height', $(window).height());
     });
 </script>
 <!-- <script src="http://more.handlino.com/javascripts/moretext-1.2.js" type="text/javascript"></script> -->

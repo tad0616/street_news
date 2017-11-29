@@ -28,17 +28,22 @@
     {if isset($smarty.session.username) and $smarty.session.username==$article.username}
         <div class="alert alert-info text-center">
             <div class="row">
-            <div class="col-6 text-left">
-                <a href="javascript:;" class="btn btn-warning">
-                    <i class="fa fa-star" aria-hidden="true"></i>&nbsp;加入精選</a>
-                
-            </div>
-            <div class="col-6 text-right">
-                <a href="admin.php?op=modify_article&sn={$article.sn}" class="btn btn-success">
-                    <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;編輯</a>
-                <a href="admin.php?op=delete_article&sn={$article.sn}" class="btn btn-danger">
-                    <i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;刪除</a>
-            </div>
+                <div class="col-6 text-left">
+
+                    {if $article.focus == 0}
+                    <a href="admin.php?op=add_focus&sn={$article.sn}" class="btn btn-warning">
+                        <i class="fa fa-star" aria-hidden="true"></i>&nbsp;加入精選</a>
+                    {else}
+                    <a href="admin.php?op=remove_focus&sn={$article.sn}" class="btn btn-warning">
+                        <i class="fa fa-star-o" aria-hidden="true"></i>&nbsp;移除精選</a>
+                    {/if}
+                </div>
+                <div class="col-6 text-right">
+                    <a href="admin.php?op=modify_article&sn={$article.sn}" class="btn btn-success">
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>&nbsp;編輯</a>
+                    <a href="admin.php?op=delete_article&sn={$article.sn}" class="btn btn-danger">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>&nbsp;刪除</a>
+                </div>
             </div>
         </div>
     {/if}

@@ -37,8 +37,12 @@ function list_picked()
     $all = array();
     $i   = 0;
     while ($data = $result->fetch_assoc()) {
-        $all[$i]            = $data;
-        $all[$i]['summary'] = mb_substr(strip_tags($data['content']), 0, 90);
+        $all[$i] = $data;
+        $wkstr1  = mb_substr(strip_tags($data['content']), 0, 90);
+        if (mb_strlen(strip_tags($data['content'])) > mb_strlen($wkstr1)) {
+            $wkstr1 .= "<span style='color:red;font-size:0.6em;font-weight:900;'><<更多.......>></span>";
+        }
+        $all[$i]['summary'] = $wkstr1;
         $i++;
     }
     $smarty->assign('all', $all);

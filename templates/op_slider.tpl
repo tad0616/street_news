@@ -13,6 +13,8 @@
                         <p>{$slider.summary}</p>
                     </div>
                 </div><!--end .carousel-item-->
+            {foreachelse}   
+                <div class="carousel-item img-container" style="background-image:url(images/pic2.jpg)"> 
             {/foreach}
             <!-- <div class="carousel-item img-container" style="background:url(images/pic2.jpg)">
                 <div class="carousel-caption d-none d-md-block" style="margin-bottom:50px;">

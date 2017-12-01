@@ -74,7 +74,13 @@ function insert_topic()
     $topic_type        = $db->real_escape_string($_POST['topic_type']);
     $topic_description = $db->real_escape_string($_POST['topic_description']);
 
-    $sql = "INSERT INTO `topic` (`topic_title`, `topic_type`, `topic_description`, `topic_default`, `username`) VALUES ('{$topic_title}', '{$topic_type}', '{$topic_description}', 1,'{$_SESSION['username']}')";
+    if ($topic_type == "類別") {
+        $topic_default = 1;
+    } else {
+        $topic_default = 0;
+    }
+
+    $sql = "INSERT INTO `topic` (`topic_title`, `topic_type`, `topic_description`, `topic_default`, `username`) VALUES ('{$topic_title}', '{$topic_type}', '{$topic_description}', '{$topic_default}' ,'{$_SESSION['username']}')";
     $db->query($sql) or die($db->error);
     $sn = $db->insert_id;
 

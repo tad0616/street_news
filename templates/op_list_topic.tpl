@@ -15,10 +15,7 @@
             <td>
                 {$topic.topic_sn}
             </td>
-            <td>
-                <!-- <a href="index.php?receipt_id={$receipt.receipt_id}">{$receipt.title}</a> -->
-                {$topic.topic_title}
-            </td>
+            <td>{$topic.topic_title}</td>
             <td>{$topic.topic_type}</td>
             <td>{$topic.topic_description}</td>
             <td>{$topic.topic_default}</td>

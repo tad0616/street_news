@@ -4,15 +4,16 @@
 
 <script src="ckeditor/ckeditor.js"></script>
 <form action="topic.php" method="post" enctype="multipart/form-data" class="my-4" id="myform">
+   
+    <div class="form-group">
+        <label for="topic_title" class="col-form-label sr-only">類別或主題名稱</label>
+        <input type="text" class="form-control validate[required]" name="topic_title" id="topic_title" placeholder="類別或主題名稱">
+    </div>
     <div class="form-group">請擇一
-        <select name="topic_title" > 
+        <select name="topic_type"> 
 　           <option value="類別">類別</option>
              <option value="主題">主題</option>
         </select>
-    </div>
-    <div class="form-group">
-        <label for="topic_type" class="col-form-label sr-only">種類</label>
-        <input type="text" class="form-control validate[required]" name="topic_type" id="topic_type" placeholder="請輸入種類">
     </div>
     <div class="form-group">
         <label for="topic_description" class="col-form-label sr-only">說明</label>

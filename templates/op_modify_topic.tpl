@@ -4,24 +4,24 @@
 
 <script src="ckeditor/ckeditor.js"></script>
 <form action="topic.php" method="post" enctype="multipart/form-data" class="my-4" id="myform">
+
     <div class="form-group">
-         <div class="form-group">請擇一
-            <select name="topic_title"> 
-             {if $topic.topic_title=="類別" }
+        <label for="topic_title" class="col-form-label sr-only">類別或主題名稱</label>
+        <input type="text" class="form-control validate[required]" name="topic_title" id="topic_title" placeholder="請輸入類別或主題名稱"
+         value="{$topic.topic_title}">
+    </div>
+    <div class="form-group">
+            <div class="form-group">請擇一
+                <select name="topic_type"> 
+             {if $topic.topic_type=="類別" }
 　               <option value="類別" selected="selected">類別</option>
                  <option value="主題" >主題</option>
              {else}
                 <option value="類別">類別</option>
                 <option value="主題" selected="selected">主題</option>
-             {/if}
-             
-        </select>
-        </div>
-    </div>
-    <div class="form-group">
-        <label for="topic_type" class="col-form-label sr-only">種類</label>
-        <input type="text" class="form-control validate[required]" name="topic_type" id="topic_type" placeholder="請輸入種類"
-         value="{$topic.topic_type}">
+             {/if}             
+            </select>
+            </div>
     </div>
     <div class="form-group">
         <label for="topic_description" class="col-form-label sr-only">說明</label>

@@ -19,7 +19,12 @@
         <label for="topic_description" class="col-form-label sr-only">說明</label>
         <textarea name="topic_description" id="topic_description" rows="20" class="form-control " placeholder="請輸入專題說明"></textarea>
     </div>
-
+    <div class="form-group">
+        <input type="radio" id="topic_status1" name="topic_status" value="0">
+        <label for="topic_status1">非當期</label>
+        <input type="radio" id="topic_status2" name="topic_status" value="1">
+        <label for="topic_status2">當期</label>
+    </div>
     <div class="text-center">
         <input type="hidden" name="op" value="insert">
         <input type="hidden" name="username" value="{$smarty.session.username}">

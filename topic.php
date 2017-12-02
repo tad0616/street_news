@@ -73,14 +73,13 @@ function insert_topic()
     $topic_title       = $db->real_escape_string($_POST['topic_title']);
     $topic_type        = $db->real_escape_string($_POST['topic_type']);
     $topic_description = $db->real_escape_string($_POST['topic_description']);
+    $topic_status      = $db->real_escape_string($_POST['topic_status']);
 
     if ($topic_type == "類別") {
-        $topic_default = 1;
-    } else {
-        $topic_default = 0;
+        $topic_status = 1;
     }
 
-    $sql = "INSERT INTO `topic` (`topic_title`, `topic_type`, `topic_description`, `topic_default`, `username`) VALUES ('{$topic_title}', '{$topic_type}', '{$topic_description}', '{$topic_default}' ,'{$_SESSION['username']}')";
+    $sql = "INSERT INTO `topic` (`topic_title`, `topic_type`, `topic_description`, `topic_status`, `username`) VALUES ('{$topic_title}', '{$topic_type}', '{$topic_description}', '{$topic_status}' ,'{$_SESSION['username']}')";
     $db->query($sql) or die($db->error);
     $sn = $db->insert_id;
 
@@ -103,8 +102,9 @@ function update_topic($sn)
     $topic_title       = $db->real_escape_string($_POST['topic_title']);
     $topic_type        = $db->real_escape_string($_POST['topic_type']);
     $topic_description = $db->real_escape_string($_POST['topic_description']);
+    $topic_status      = $db->real_escape_string($_POST['topic_status']);
 
-    $sql = "UPDATE `topic` SET `topic_title`='{$topic_title}', `topic_type`='{$topic_type}', `topic_description`='{$topic_description}' WHERE `topic_sn`='{$sn}' ";
+    $sql = "UPDATE `topic` SET `topic_title`='{$topic_title}', `topic_type`='{$topic_type}', `topic_description`='{$topic_description}',`topic_status`='{$topic_status}'  WHERE `topic_sn`='{$sn}' ";
 
     $db->query($sql) or die($db->error);
 }

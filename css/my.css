@@ -3,16 +3,7 @@ body {
   /* font-size: 1.2rem; */
 }
 
-.img-container {
-  width: 100%;
-  height: 800px;
-  background-color: #000;
-  background-image: url('../images/pic2.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: left center;
-  color: white;
-}
+
 
 nav{
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
@@ -33,3 +24,94 @@ footer{
 .footer{
   margin-top: 100px; 
 }
+
+
+/************ start 首頁輪播樣式 ************/
+.img-container {
+  width: 100%;
+  height: 800px;
+  background-color: #000;
+  /* background-image: url('../images/pic2.jpg'); */
+  background-repeat: no-repeat;
+  background-size: cover!important;
+  background-position: left center; 
+  color: white;
+}
+.carousel-caption {
+  margin-bottom: 50px;
+  padding:auto 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.carousel-caption p {
+  padding: 10px 20px 0 20px;;
+}
+/************ end 首頁輪播樣式 ************/
+
+/************* start 內文樣式 *************/
+.container.article {
+  margin: 50px auto;
+}
+.container.article .article-meta {
+  line-height: 40px;
+}
+.container.article h1 {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e7e7e7;
+}
+.article-content {
+  padding-bottom: 30px;
+  border-bottom: 1px solid #e7e7e7;
+}
+.article-content p {
+  line-height: 2rem !important;
+}
+.a2a_default_style {
+  text-align: right;
+  float: right;
+  margin-top: 20px;
+  padding-bottom: 30px;
+}
+.img-container2 .card-text li {
+  margin-bottom: .75rem;
+}
+
+/************* end 內文樣式 ***************/
+
+/******* start 文章文字大小按鈕樣式 ********/
+.fontsizebox p {
+  margin: 20px 0 0 0;
+}
+.fontResizer {
+  margin: 10px 0;
+  height: 40px;
+  float: right;
+}
+.fontResizer a {
+  display: block;
+  float: left;
+  width: 32px;
+  height: 32px;
+  text-align: center;
+  border: 1px solid #ccc;
+  line-height: 32px;
+  color: #666;
+  text-decoration: none;
+}
+.fontResizer a:hover {
+  color: #000;
+  text-decoration: none;
+}
+.smallFont {
+  font-size: 16px;
+}
+.medFont {
+  font-size: 18px;
+}
+
+.largeFont {
+  font-size: 24px;
+}
+.curFont {
+  background: #eeeef7;
+}
+/******* end 文章文字大小按鈕樣式 ********/

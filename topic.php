@@ -50,22 +50,6 @@ require_once 'footer.php';
 
 /*************函數區**************/
 
-//讀出所有類別
-function list_topic()
-{
-    global $db, $smarty;
-
-    $sql    = "SELECT * FROM `topic` ORDER BY `topic_sn` DESC LIMIT 0,9";
-    $result = $db->query($sql) or die($db->error);
-    $all    = [];
-    $i      = 0;
-    while ($data = $result->fetch_assoc()) {
-        $all[] = $data;
-    }
-    //die(var_export($all));
-    $smarty->assign('all', $all);
-}
-
 //儲存類別
 function insert_topic()
 {
@@ -76,7 +60,7 @@ function insert_topic()
     $topic_status      = $db->real_escape_string($_POST['topic_status']);
 
     if ($topic_type == "類別") {
-        $topic_status = 1;
+        $topic_status = '';
     }
 
     $sql = "INSERT INTO `topic` (`topic_title`, `topic_type`, `topic_description`, `topic_status`, `username`) VALUES ('{$topic_title}', '{$topic_type}', '{$topic_description}', '{$topic_status}' ,'{$_SESSION['username']}')";
@@ -103,6 +87,10 @@ function update_topic($sn)
     $topic_type        = $db->real_escape_string($_POST['topic_type']);
     $topic_description = $db->real_escape_string($_POST['topic_description']);
     $topic_status      = $db->real_escape_string($_POST['topic_status']);
+
+    if ($topic_type == "類別") {
+        $topic_status = '';
+    }
 
     $sql = "UPDATE `topic` SET `topic_title`='{$topic_title}', `topic_type`='{$topic_type}', `topic_description`='{$topic_description}',`topic_status`='{$topic_status}'  WHERE `topic_sn`='{$sn}' ";
 

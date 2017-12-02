@@ -153,3 +153,19 @@ function remove_focus($sn)
 
     return $sn;
 }
+
+//讀出所有類別
+function list_topic()
+{
+    global $db, $smarty;
+
+    $sql    = "SELECT * FROM `topic` ORDER BY `topic_sn` ";
+    $result = $db->query($sql) or die($db->error);
+    $all    = [];
+    $i      = 0;
+    while ($data = $result->fetch_assoc()) {
+        $all[] = $data;
+    }
+    //die(var_export($all));
+    $smarty->assign('all', $all);
+}

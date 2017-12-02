@@ -17,17 +17,23 @@ $response = '';
 $loginCtl = new LoginForm;
 $conf = new GlobalConf;
 $lastAttempt = checkAttempts($username);
+if (empty($lastAttempt)) {
+    $attempts = '';
+    $lastlogin = '';
+} else {
+    $attempts = isset($lastAttempt['attempts']) ? $lastAttempt['attempts'] : '';
+    $lastlogin = isset($lastAttempt['lastlogin']) ? $lastAttempt['lastlogin'] : '';
+}
 $max_attempts = $conf->max_attempts;
 
-
 //First Attempt
-if ($lastAttempt['lastlogin'] == '') {
+if (isset($lastlogin) and $lastlogin == '') {
 
     $lastlogin = 'never';
     $loginCtl->insertAttempt($username);
     $response = $loginCtl->checkLogin($username, $password);
 
-} elseif ($lastAttempt['attempts'] >= $max_attempts) {
+} elseif (isset($attempts) and $attempts >= $max_attempts) {
 
     //Exceeded max attempts
     $loginCtl->updateAttempts($username);
@@ -37,9 +43,9 @@ if ($lastAttempt['lastlogin'] == '') {
 
     $response = $loginCtl->checkLogin($username, $password);
 
-};
+}
 
-if ($lastAttempt['attempts'] < $max_attempts && $response != 'true') {
+if ($attempts < $max_attempts && $response != 'true') {
 
     $loginCtl->updateAttempts($username);
     $resp = new RespObj($username, $response);

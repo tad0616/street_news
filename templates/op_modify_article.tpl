@@ -11,7 +11,7 @@
             <select name="topic_sn"> 
 　              {foreach $all as $topic}
                     <option value={$topic.topic_sn}  
-                     {if $topic.topic_sn==$article.classify} selected="selected" {/if}
+                     {if $topic.topic_sn==$article.topic_sn} selected="selected" {/if}
                     >{$topic.topic_type}-{$topic.topic_title}</option>
                 {foreachelse}
                     <option value="">尚無內容</option>

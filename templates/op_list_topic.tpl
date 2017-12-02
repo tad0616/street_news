@@ -18,7 +18,7 @@
             <td>{$topic.topic_title}</td>
             <td>{$topic.topic_type}</td>
             <td>{$topic.topic_description}</td>
-            <td>{$topic.topic_status}</td>
+            <td>{if $topic.topic_status!=""} {$topic_status[{$topic.topic_status}]}{/if}</td>
             {if isset($smarty.session.username) }
             <td><a href="topic.php?op=modify_topic&sn={$topic.topic_sn}" class="btn btn-warning">編輯</a><a href="topic.php?op=delete_topic&sn={$topic.topic_sn}" class="btn btn-danger">刪除</a></td>
             {else}

@@ -34,8 +34,7 @@
             <input type="hidden" name="sn" value="{$article.sn}">
             <input type="hidden" name="op" value="update">
             <input type="hidden" name="username" value="{$smarty.session.username}">
-            <input type="hidden" name="topic_sn" value={$topic.topic_sn}>
-            <button type="submit" class="btn btn-primary">儲存</button>
+             <button type="submit" class="btn btn-primary">儲存</button>
         </div>
     </form>
 

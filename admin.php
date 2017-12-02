@@ -28,6 +28,16 @@ switch ($op) {
         header("location: index.php?sn={$sn}");
         exit;
 
+    case 'add_focus':
+        add_focus($sn);
+        header("location: index.php?sn={$sn}");
+        exit;
+
+    case 'remove_focus':
+        remove_focus($sn);
+        header("location: index.php?sn={$sn}");
+        exit;
+
     default:
         $op = "";
         break;
@@ -108,4 +118,25 @@ function upload_pic($sn)
             }
         }
     }
+}
+
+//將文章加入精選，focus欄位變為 1
+function add_focus($sn)
+{
+    global $db;
+
+    $sql = "UPDATE `article` SET `focus`='1' WHERE `sn`='{$sn}'";
+    $db->query($sql) or die($db->error);
+
+    return $sn;
+}
+//將文章移除精選，focus欄位變回 0
+function remove_focus($sn)
+{
+    global $db;
+
+    $sql = "UPDATE `article` SET `focus`='0' WHERE `sn`='{$sn}'";
+    $db->query($sql) or die($db->error);
+
+    return $sn;
 }

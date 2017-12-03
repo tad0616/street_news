@@ -1,7 +1,8 @@
- <h3>【前端頁面】 編輯精選--由編輯群挑選當周一則精選主題，類似頭條新聞，最上一則呈現。</h3>
- <p>一、index.tpl >> op_slider.tpl 呈現在首頁輪播圖文</p>
- <p>二、index.tpl >> op_show_article.tpl 觀看某篇文章</p>
- <p>三、picked.tpl 列出所有精選文章</p>
+【前端頁面】<br> 
+<h3>編輯精選--由編輯群挑選當周一則精選主題，類似頭條新聞，最上一則呈現。</h3>
+<p>一、index.tpl >> op_slider.tpl 呈現在首頁輪播圖文</p>
+<p>二、index.tpl >> op_show_article.tpl 觀看某篇文章</p>
+<p>三、picked.tpl 列出所有精選文章</p>
 
 <h3>街巷故事--由社大師生書寫發表台南有趣或重要的故事或新聞。 </h3>
 <p>一、index.tpl >> op_submission.tpl 徵稿頁面，並詳述需要的資料（提供一個投稿的範例內容） </p>

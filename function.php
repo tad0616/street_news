@@ -41,3 +41,36 @@ function show_article($sn)
     $next['title'] = mb_substr($next['title'], 0, 16) . '...';
     $smarty->assign('next', $next);
 }
+
+//讀出所有類別
+function list_topic()
+{
+    global $db, $smarty;
+
+    $sql    = "SELECT * FROM `topic` ORDER BY `topic_sn` ";
+    $result = $db->query($sql) or die($db->error);
+    $all    = [];
+    $i      = 0;
+    while ($data = $result->fetch_assoc()) {
+        $all[$i] = $data;
+        $i++;
+    }
+
+    //die(var_export($all));
+    list_topic_status();
+    $smarty->assign('all', $all);
+
+}
+
+//讀出所有TOPIC_status
+function list_topic_status()
+{
+    if (!isset($smarty)) {
+        global $smarty;
+    }
+
+    //狀態值增刪記得修改TABLE值
+    $status = ['開始投稿', '當期', '一般', '關閉'];
+    $smarty->assign('topic_status', $status);
+
+}

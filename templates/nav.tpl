@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark sticky-top bg-dark py-0">
+<nav id="news" class="navbar navbar-expand-md navbar-dark sticky-top bg-dark py-0">
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#menu">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -16,6 +16,7 @@
         </div>
 
         <div class="navbar-nav">
+        {include file="op_search_form.tpl"}
         {if isset($smarty.session.username)}
             <a href="admin.php?op=article_form" class="nav-link text-white">發布</a>
             <a href="picked.php" class="nav-link text-white">精選管理</a>

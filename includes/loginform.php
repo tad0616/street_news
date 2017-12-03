@@ -127,10 +127,17 @@ class LoginForm extends DbConn
 
             $att = new LoginForm;
             $attcheck = checkAttempts($username);
-            $curr_attempts = $attcheck['attempts'];
+            if (empty($attcheck)) {
+                $attempts = '';
+                $lastlogin = '';
+            } else {
+                $attempts = isset($attcheck['attempts']) ? $attcheck['attempts'] : '';
+                $lastlogin = isset($attcheck['lastlogin']) ? $attcheck['lastlogin'] : '';
+            }
+            $curr_attempts = $attempts;
 
             $datetimeNow = date("Y-m-d H:i:s");
-            $oldTime = strtotime($attcheck['lastlogin']);
+            $oldTime = strtotime($lastlogin);
             $newTime = strtotime($datetimeNow);
             $timeDiff = $newTime - $oldTime;
 

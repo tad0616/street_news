@@ -1,0 +1,1 @@
+ALTER TABLE `article` CHANGE COLUMN   `classify` `topic_sn` varchar(10) NOT NULL COMMENT '類別編號';

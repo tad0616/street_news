@@ -19,6 +19,7 @@
         {if isset($smarty.session.username)}
             <a href="admin.php?op=article_form" class="nav-link text-white">發布</a>
             <a href="picked.php" class="nav-link text-white">精選管理</a>
+            <a href="topic.php"  class="nav-link text-white">專題設定</a>
             <a href="logout.php" class="nav-link text-white">登出</a>
         {else} 
             <a href="index.php?op=submission" class="nav-link text-white">投稿</a>

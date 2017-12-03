@@ -12,7 +12,7 @@ function getPageBar($mysqli = '', $sql = "", $show_num = 20, $page_list = 10, $t
     }
 
     $result = $mysqli->query($sql) or die($mysqli->connect_error);
-    $total  = $result->num_rows;
+    $total = $result->num_rows;
 
     $navbar = new PageBar($total, $show_num, $page_list);
 
@@ -24,24 +24,20 @@ function getPageBar($mysqli = '', $sql = "", $show_num = 20, $page_list = 10, $t
         $navbar->set_url_other($url_other);
     }
 
-    $mybar       = $navbar->makeBar();
+    $mybar = $navbar->makeBar();
     $main['bar'] = "
-      <div class='row'>
-        <div class='col-md-12'>
-          <div class='text-center'>
-            <nav>
-              <ul class='pagination'>
+    <div class='row'>
+        <nav class='mx-auto' id='pagination'>
+            <ul class='pagination'>
                 {$mybar['left']}
                 {$mybar['center']}
                 {$mybar['right']}
-              </ul>
-            </nav>
-          </div>
-        </div>
-      </div>
+            </ul>
+        </nav>
+    </div>
       ";
 
-    $main['sql']   = $sql . $mybar['sql'];
+    $main['sql'] = $sql . $mybar['sql'];
     $main['total'] = $total;
 
     return $main;
@@ -76,25 +72,25 @@ class PageBar
     {
         $limit = intval($limit);
         //die(var_export($limit));
-        $mydirname     = basename(dirname(__FILE__));
+        $mydirname = basename(dirname(__FILE__));
         $this->to_page = $_SERVER['PHP_SELF'];
-        $this->limit   = $limit;
-        $this->total   = $total;
-        $this->pLimit  = $page_limit;
+        $this->limit = $limit;
+        $this->total = $total;
+        $this->pLimit = $page_limit;
     }
 
     public function init()
     {
         $this->used_query = array($this->url_page);
-        $this->query_str  = $this->processQuery($this->used_query);
-        $this->glue       = ($this->query_str == "") ? '?' : '&';
+        $this->query_str = $this->processQuery($this->used_query);
+        $this->glue = ($this->query_str == "") ? '?' : '&';
 
         $this->current = (isset($_GET[$this->url_page])) ? intval($_GET[$this->url_page]) : 1;
         if ($this->current < 1) {
             $this->current = 1;
         }
 
-        $this->pTotal   = ceil($this->total / $this->limit);
+        $this->pTotal = ceil($this->total / $this->limit);
         $this->pCurrent = ceil($this->current / $this->pLimit);
     }
 
@@ -103,7 +99,7 @@ class PageBar
     {
         // 將 URL 字串分離成二維陣列
         $QUERY_STRING = htmlspecialchars($_SERVER['QUERY_STRING']);
-        $vars         = explode("&", $QUERY_STRING);
+        $vars = explode("&", $QUERY_STRING);
         //die(var_export($vars));
         for ($i = 0; $i < count($vars); $i++) {
             if (substr($vars[$i], 0, 7) == "amp;g2p") {
@@ -180,13 +176,13 @@ class PageBar
             if ($i == $this->current) {
                 $bar_center = "
                   {$bar_center}
-                  <li class='active'>
-                    <a href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}={$i}{$loadtime}' title='{$i}'>{$i}<span class='sr-only'>(current)</span></a>
+                  <li class='page-item active'>
+                    <a href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}={$i}{$loadtime}' title='{$i}' class='page-link'>{$i}<span class='sr-only'>(current)</span></a>
                   </li>";
             } else {
                 $bar_center .= "
-                  <li>
-                    <a href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}={$i}{$loadtime}' title='{$i}'>{$i}</a>
+                  <li class='page-item'>
+                    <a href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}={$i}{$loadtime}' title='{$i}' class='page-link'>{$i}</a>
                   </li>";
             }
             $i++;
@@ -196,30 +192,30 @@ class PageBar
         // 往前跳一頁
         if ($this->current <= 1) {
             //$bar_left=$bar_first="";
-            $bar_left  = "<li class='disabled'><a href='#'>&lsaquo;</a></li>";
-            $bar_first = "<li class='disabled'><a href='#'>&laquo;</a></li>";
+            $bar_left = "<li class='page-item disabled'><a href='#' class='page-link'>&lsaquo;</a></li>";
+            $bar_first = "<li class='page-item disabled'><a href='#' class='page-link'>&laquo;</a></li>";
         } else {
-            $i         = $this->current - 1;
-            $bar_left  = "<li><a href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}={$i}{$loadtime}' title='回上頁'>&lsaquo;</a></li>";
-            $bar_first = "<li><a href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}=1{$loadtime}' title='回第一頁' >&laquo;</a></li>";
+            $i = $this->current - 1;
+            $bar_left = "<li class='page-item'><a href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}={$i}{$loadtime}' title='回上頁' class='page-link'>&lsaquo;</a></li>";
+            $bar_first = "<li class='page-item'><a href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}=1{$loadtime}' title='回第一頁' class='page-link'>&laquo;</a></li>";
         }
 
         // 往後跳一頁
         if ($this->current >= $this->pTotal) {
             //$bar_right=$bar_last="";
-            $bar_right = "<li class='disabled'><a href='#'>&rsaquo;</a></li>";
-            $bar_last  = "<li class='disabled'><a href='#'>&raquo;</a></li>";
+            $bar_right = "<li class='page-item disabled'><a href='#' class='page-link'>&rsaquo;</a></li>";
+            $bar_last = "<li class='page-item disabled'><a href='#' class='page-link'>&raquo;</a></li>";
         } else {
-            $i         = $this->current + 1;
-            $bar_right = "<li><a href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}={$i}{$loadtime}' title='下一頁'>&rsaquo;</a></li>";
-            $bar_last  = "<li><a href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}={$this->pTotal}{$loadtime}' title='上一頁' >&raquo;</a></li>";
+            $i = $this->current + 1;
+            $bar_right = "<li class='page-item'><a href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}={$i}{$loadtime}' title='下一頁' class='page-link'>&rsaquo;</a></li>";
+            $bar_last = "<li class='page-item'><a href='{$this->to_page}{$this->query_str}{$this->glue}{$this->url_page}={$this->pTotal}{$loadtime}' title='上一頁' class='page-link'>&raquo;</a></li>";
         }
 
         // 往前跳一整個頁框(層)
         if (($this->current - $this->pLimit) < 1) {
             $bar_l = "";
         } else {
-            $i     = $this->current - $this->pLimit;
+            $i = $this->current - $this->pLimit;
             $bar_l = "";
         }
 
@@ -227,16 +223,16 @@ class PageBar
         if (($this->current + $this->pLimit) > $this->pTotal) {
             $bar_r = "";
         } else {
-            $i     = $this->current + $this->pLimit;
+            $i = $this->current + $this->pLimit;
             $bar_r = "";
         }
 
-        $page_bar['center']  = $bar_center;
-        $page_bar['left']    = $bar_first . $bar_l . $bar_left;
-        $page_bar['right']   = $bar_right . $bar_r . $bar_last;
+        $page_bar['center'] = $bar_center;
+        $page_bar['left'] = $bar_first . $bar_l . $bar_left;
+        $page_bar['right'] = $bar_right . $bar_r . $bar_last;
         $page_bar['current'] = $this->current;
-        $page_bar['total']   = $this->pTotal;
-        $page_bar['sql']     = $this->sqlQuery();
+        $page_bar['total'] = $this->pTotal;
+        $page_bar['sql'] = $this->sqlQuery();
         return $page_bar;
     }
 }

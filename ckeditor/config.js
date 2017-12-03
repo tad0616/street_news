@@ -23,4 +23,5 @@ CKEDITOR.editorConfig = function (config) {
 	config.removeButtons = 'Save,NewPage,Preview,Print,Templates,Cut,Copy,Paste,Replace,Find,SelectAll,Scayt,Form,Radio,Checkbox,TextField,Textarea,Select,Button,ImageButton,HiddenField,CreateDiv,BidiLtr,BidiRtl,Language,Anchor,Flash,Iframe,SpecialChar,About,ShowBlocks,Maximize,PasteText,PasteFromWord,Undo,Redo,CopyFormatting';
 
 	config.filebrowserBrowseUrl = 'elFinder/elfinder_cke.php';
+	config.extraPlugins = 'autogrow';
 };

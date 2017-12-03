@@ -35,7 +35,12 @@ function list_article()
 {
     global $db, $smarty;
 
-    $sql = "SELECT * FROM `article` ORDER BY `update_time` DESC LIMIT 0,9";
+    $sql = "SELECT * FROM `article` ORDER BY `update_time` DESC";
+    include_once "PageBar.php";
+    $PageBar = getPageBar($db, $sql, 5, 10);
+    $bar = $PageBar['bar'];
+    $sql = $PageBar['sql'];
+    $total = $PageBar['total'];
     $result = $db->query($sql) or die($db->error);
     $all = array();
     $i = 0;
@@ -46,6 +51,7 @@ function list_article()
     }
     // die(var_export($all));
     $smarty->assign('all', $all);
+    $smarty->assign('bar', $bar);
 }
 //讀出所有精選
 function list_focus()

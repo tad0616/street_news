@@ -6,9 +6,12 @@
         <div class="col-sm-4">
             <a href="index.php?sn={$article.sn}" style="text-decoration:none;">
                 <div class="new-article top-shadow bottom-shadow">
-                    {assign var="cover" value="uploads/thumb_`$article.sn`.png"} {if file_exists($cover)}
-                    <img src="{$cover}" alt="{$article.title}" class="rounded cover"> {else}
-                    <img src="https://picsum.photos/400/300?image={$article@index}" alt="{$article.title}" class="rounded cover"> {/if}
+                    {assign var="cover" value="uploads/thumb_`$article.sn`.png"} 
+                    {if file_exists($cover)}
+                        <img src="{$cover}" alt="{$article.title}" class="rounded cover"> 
+                    {else}
+                        <img src="https://picsum.photos/400/300?image={$article@index}" alt="{$article.title}" class="rounded cover"> 
+                    {/if}
                     <div class="latest-post">
                         <h4>{$article.title}</h4>
                     </div>
@@ -17,7 +20,8 @@
             </a>
         </div>
         {foreachelse}
-        <h1>尚無內容</h1>
+            <h1>尚無內容</h1>
         {/foreach}
     </div>
+    {$bar}
 </div>

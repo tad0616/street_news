@@ -22,10 +22,30 @@
         <a class="a2a_button_line"></a>
     </div>
     <div style="clear: both"></div>
- 
+    
+    {if isset($previous.sn) or isset($next.sn)}
+        <div class="row my-5">
+            <div class="col-6 text-left">
+                {if $previous.sn}
+                    <a href="index.php?sn={$previous.sn}" class="btn btn-info btn-block">
+                        <i class="fa fa-chevron-circle-left" aria-hidden="true"></i>
+                        {$previous.title}
+                    </a>
+                {/if}
+            </div>
+            <div class="col-6 text-right">        
+                {if $next.sn}
+                    <a href="index.php?sn={$next.sn}" class="btn btn-info btn-block">
+                        {$next.title}
+                        <i class="fa fa-chevron-circle-right" aria-hidden="true"></i>
+                    </a>
+                {/if}
+            </div>
+        </div>
+    {/if}
 
 
-    {if isset($smarty.session.username) and $smarty.session.username==$article.username}
+    {if isset($article) and isset($smarty.session.username) and $smarty.session.username == $article.username}
         <div class="alert alert-info text-center">
             <div class="row">
                 <div class="col-6 text-left">

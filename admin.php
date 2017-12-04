@@ -94,7 +94,7 @@ function update_article($sn)
     $title    = $db->real_escape_string($_POST['title']);
     $content  = $db->real_escape_string($_POST['content']);
     $username = $db->real_escape_string($_POST['username']);
-    $topic_sn = $db->real_escape_string($_POST['topic_sn']);
+    $topic_sn = $db->real_escape_string($_POST['sel_topic_sn']);
 
     $sql = "update `article` Set `title`='{$title}', `content`= '{$content}',`update_time`=NOW() ,`topic_sn` ='{$topic_sn}' WHERE sn='{$sn}' ";
 

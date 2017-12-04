@@ -1,16 +1,7 @@
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-
-
 CREATE TABLE IF NOT EXISTS `article` (
   `sn` smallint(5) unsigned NOT NULL AUTO_INCREMENT COMMENT '流水號',
   `focus` tinyint(2) unsigned NOT NULL COMMENT '精選',
-  `classify` tinyint(2) unsigned NOT NULL COMMENT '類別編號',
+  `topic_sn` tinyint(2) unsigned NOT NULL COMMENT '類別編號',
   `sort` tinyint(5) unsigned NOT NULL COMMENT '排序',
   `title` varchar(300) NOT NULL,
   `content` text NOT NULL,
@@ -42,6 +33,12 @@ CREATE TABLE IF NOT EXISTS `members` (
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+CREATE TABLE IF NOT EXISTS  `topic` (
+  `topic_sn` mediumint(9) NOT NULL AUTO_INCREMENT COMMENT '類別編號',
+  `topic_title` varchar(255) NOT NULL COMMENT '類別或主題名稱',
+  `topic_type` varchar(10) NOT NULL COMMENT '種類',
+  `topic_description` text NOT NULL COMMENT '說明',
+  `topic_status` enum('0','1','2','3') NOT NULL COMMENT '主題狀態',
+  `username` varchar(65) NOT NULL COMMENT '建立者',
+  PRIMARY KEY (`topic_sn`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;

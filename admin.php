@@ -17,9 +17,15 @@ switch ($op) {
         exit;
 
     case "article_form":
+        //sumi add 加入TOPIC
+        list_topic();
+
         break;
 
     case "modify_article":
+        //sumi add 加入TOPIC
+        list_topic();
+
         show_article($sn);
         break;
 
@@ -50,12 +56,14 @@ require_once 'footer.php';
 //儲存文章
 function insert_article()
 {
+    //sumi add topic_sn
+
     global $db;
     $title    = $db->real_escape_string($_POST['title']);
     $content  = $db->real_escape_string($_POST['content']);
     $username = $db->real_escape_string($_POST['username']);
-
-    $sql = "INSERT INTO `article` (`title`, `content`, `username`, `create_time`, `update_time`) VALUES ('{$title}', '{$content}', '{$username}', NOW(), NOW())";
+    $topic_sn = $db->real_escape_string($_POST['sel_topic_sn']);
+    $sql      = "INSERT INTO `article` (`title`, `content`, `username`, `create_time`, `update_time`,`topic_sn`) VALUES ('{$title}', '{$content}', '{$username}', NOW(), NOW(),'{$topic_sn}')";
     $db->query($sql) or die($db->error);
     $sn = $db->insert_id;
 
@@ -80,12 +88,16 @@ function delete_article($sn)
 //更新文章
 function update_article($sn)
 {
+    //sumi add topic_sn
+
     global $db;
     $title    = $db->real_escape_string($_POST['title']);
     $content  = $db->real_escape_string($_POST['content']);
     $username = $db->real_escape_string($_POST['username']);
+    $topic_sn = $db->real_escape_string($_POST['sel_topic_sn']);
 
-    $sql = "UPDATE `article` SET `title`='{$title}', `content`='{$content}', `update_time`= NOW() WHERE `sn`='{$sn}' and username='{$_SESSION['username']}'";
+    $sql = "update `article` Set `title`='{$title}', `content`= '{$content}',`update_time`=NOW() ,`topic_sn` ='{$topic_sn}' WHERE sn='{$sn}' ";
+
     $db->query($sql) or die($db->error);
 
     upload_pic($sn);
@@ -103,6 +115,7 @@ function upload_pic($sn)
         if ($foo->uploaded) {
             // save uploaded image with a new name
             $foo->file_new_name_body = 'cover_' . $sn;
+            $foo->file_overwrite     = true;
             $foo->image_resize       = true;
             $foo->image_convert      = png;
             $foo->image_x            = 1200;
@@ -110,6 +123,7 @@ function upload_pic($sn)
             $foo->Process('uploads/');
             if ($foo->processed) {
                 $foo->file_new_name_body = 'thumb_' . $sn;
+                $foo->file_overwrite     = true;
                 $foo->image_resize       = true;
                 $foo->image_convert      = png;
                 $foo->image_x            = 400;

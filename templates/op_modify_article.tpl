@@ -8,7 +8,7 @@
 
     <form action="admin.php" method="post" enctype="multipart/form-data" class="my-4" id ="myform">
         <div class="form-group">類別/主題，請擇一
-            <select name="topic_sn"> 
+            <select name="sel_topic_sn"> 
 　              {foreach $all as $topic}
                     <option value={$topic.topic_sn}  
                      {if $topic.topic_sn==$article.topic_sn} selected="selected" {/if}

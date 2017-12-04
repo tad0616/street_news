@@ -2,7 +2,6 @@
 /*
 程式功能：從 article , 找出分類編號屬於「私房知識塾」的文章（即 topic_sn=2）
  */
-require "loginheader.php";
 require_once 'header.php';
 $page_title = '私房知識塾';
 
@@ -14,8 +13,13 @@ $sn          = isset($_REQUEST['sn']) ? (int) $_REQUEST['sn'] : 0;
 
 switch ($op) {
     default:
-        $op = "";
-        list_class($searchTitle, $searchBdate, $searchEdate);
+        if ($sn) {
+            show_article($sn);
+            $op = 'show_class';
+        } else {
+            $op = "list_class";
+            list_class($searchTitle, $searchBdate, $searchEdate);
+        }
         break;
 }
 

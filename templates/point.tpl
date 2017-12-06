@@ -8,56 +8,20 @@
 <body>
     {include file="nav.tpl"}
     <!-- 開始 -->
-
-    <!-- 當期主題 -->
-    <section class="inner-page-hero bg-image" data-image-src="uploads/cover_2.png">
-        <div class="profile">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-12  col-md-4 col-lg-4 profile-img">
-                        <div class="image-wrap">
-                            <figure>
-                                <img src="uploads/thumb_2.png" alt="Profile Image">
-                            </figure>
-                        </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 profile-desc">
-                        <div class="pull-left right-text white-txt">
-                            <h6>
-                                <a href="#">Maenaam Thai Restaurant</a>
-                            </h6>
-                            <a class="btn btn-small btn-green">Open</a>
-                            <p>Burgers, American, Sandwiches, Fast Food, BBQ</p>
-                            <ul class="nav nav-inline">
-                                <li class="nav-item">
-                                    <a class="nav-link active" href="#">
-                                        <i class="fa fa-check"></i> Min $ 10,00</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">
-                                        <i class="fa fa-motorcycle"></i> 30 min</a>
-                                </li>
-                                <li class="nav-item ratings">
-                                    <a class="nav-link" href="#">
-                                        <span>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star"></i>
-                                            <i class="fa fa-star-o"></i>
-                                        </span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+    <!-- 當期市井觀點 -->
+    <section class="hero bg-image" data-image-src="http://placehold.it/1670x680">
+        <div class="hero-inner">
+            <div class="container text-center hero-text font-white">
+                <h1>我是當期主題</h1>
+                <hr>
+                <h5 class="font-white space-xs">主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述</h5>
             </div>
         </div>
     </section>
-    <!-- //當期主題 -->
+    <!-- //當期市井觀點 -->
 
-    <!-- 顯示當期主題文章 -->
+
+    <!-- 顯示當期市井觀點文章 -->
     <section class="popular">
         <div class="container">
             <div class="title text-xs-center m-b-30">
@@ -200,7 +164,7 @@
             </div>
         </div>
     </section>
-    <!-- //顯示當期主題文章 -->
+    <!-- //顯示當期市井觀點文章 -->
     <!-- 結束 -->
     {include file="footer.tpl"}
 </body>

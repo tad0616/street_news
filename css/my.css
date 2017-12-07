@@ -3,14 +3,10 @@ body {
   /* font-size: 1.2rem; */
 }
 
-.container {
-  max-width: 1270px;
-  width: 94%;
-}
-
 nav#news {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 16px 0;
 }
 
 img.cover {
@@ -20,34 +16,18 @@ img.cover {
   background-color: #000;
 }
 
+.lead {
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: #404048;
+}
+
 footer {
   font-size: 0.8rem;
 }
 
 .footer {
   margin-top: 100px;
-}
-/*==================================
-* Bootstrap 網格調整
-*===================================*/
-
-.container {
-  max-width: 1270px;
-  width: 94%;
-}
-
-
-/* 清除列的空間 */
-
-.row.no-gutter {
-  margin-left: 0;
-  margin-right: 0;
-}
-
-.row.no-gutter [class*="col-"]:not(:first-child),
-.row.no-gutter [class*="col-"]:not(:last-child) {
-  padding-right: 0;
-  padding-left: 0;
 }
 
 
@@ -61,6 +41,16 @@ footer {
   background-size: cover !important;
   background-position: left center;
   color: white;
+}
+
+.img-container a {
+  color: #fff;
+  text-shadow: 0px 0px 5px rgb(43, 43, 43), 0px 0px 5px rgb(43, 43, 43);
+}
+
+.img-container a:hover {
+  color: #ffffff;
+  text-shadow: 0px 0px rgb(43, 43, 43), 1px 1px 5px rgb(255, 0, 0), 1px 1px 5px rgb(255, 0, 0), 0px 0px 5px rgb(43, 43, 43), -1px -1px 5px rgb(255, 0, 0);
 }
 
 .carousel-caption {
@@ -227,178 +217,67 @@ div.bottom-shadow:after {
 /* //article.title */
 /****** //首頁最新文章區塊 ******/
 
-/* ==========================
-*   Hero
-============================*/
 
-.hero {
-  padding-top: 12%;
-  padding-bottom: 10%;
-  text-align: center;
-  position: relative;
+/*--------------------------------------------------------------
+# point
+--------------------------------------------------------------*/
+.jumbotron {
+  padding-top: 6rem;
+  padding-bottom: 6rem;
+  margin-bottom: 0;
+  background-color: #000;
 }
 
-.hero h1 {
-  /* font-family: "Give You Glory", cursive; */
-  color: #fff;
-  font-size: 3.7em;
-  font-weight: 700;
+.jumbotron-heading {
+  font-weight: 300;
 }
 
-.hero:before {
-  content: "";
-  display: block;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1;
-  background-color: rgba(7, 6, 29, 0.37);
-}
-
-.hero .hero-inner {
-  position: relative;
-  z-index: 1;
-}
-
-
-
-
-/* ==========================
-*  point當期主題區塊
-============================*/
-
-.inner-page-hero {
-  padding-top: 5%;
-  padding-bottom: 5%;
-}
-
-
-/********* profile banner part ***********/
-
-.profile-banner figure img {
-  width: 100%;
-}
-
-.image-wrap {
-  border-radius: 2px;
-  padding: 10px;
-  float: left;
-  background: #fff;
-}
-
-.image-wrap figure {
-  background: #fff;
-  border-radius: 2px;
-  display: block;
-  overflow: hidden;
-  float: left;
+.jumbotron p:last-child {
   margin-bottom: 0;
 }
 
-.image-wrap figure img {
-  max-width: 100%;
-  display: block;
-}
-
-.profile p {
+.jumbotron h1 {
+  font-weight: 1200;
   color: #fff;
+  text-shadow: 0 0 20px #000;
 }
 
-.banner figure {
-  margin-bottom: 0;
+.jumbotron p {
+  font-weight: 500;
+  color: rgb(235, 235, 235);
+  font-size: 1rem;
+  text-shadow: 0 0 20px #000;
 }
 
-.profile-desc h6 a {
-  font-size: 26px;
-  line-height: 31px;
-  color: #fff;
+.jumbotron .container {
+  max-width: 50rem;
 }
 
-.profile .right-text {
+.album {
+  min-height: 3rem;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  background-color: #f7f7f7;
 }
 
-.profile-img {
-  width: 24.7%;
+.card {
+  padding: 1rem;
+  margin: .8rem;
+  border: 0;
 }
 
-.profile .right-text span {
-  margin-bottom: 8px;
-  display: block;
+.card > img {
+  margin-bottom: .75rem;
 }
 
-.profile-desc h6 {
-  display: inline-block;
-  margin-right: 3rem;
-  margin-bottom: 10px;
+.card-text {
+  font-size: 1rem;
 }
 
-.profile-desc a.btn {
-  display: inline-block;
-  padding: 3px 20px;
-  background-color: #82b21c;
-  vertical-align: text-bottom;
-  font-size: 13px;
-  color: #fff;
+#history {
+  padding: 2rem;
 }
 
-.profile-desc .right-text {
-  width: 100%;
-  border-right: 0;
-  color: rgba(255, 255, 255, .5);
-  margin-top: 30px;
-}
-
-.profile-desc .nav-item a {
-  color: #fff;
-}
-
-.profile-desc .nav-item.ratings a span i {
-  color: #ffd953;
-  font-size: 16px;
-}
-
-@media (min-width: 320px) and (max-width: 768px) {
-  .profile-desc .right-text {
-    margin-top: 0;
-  }
-
-  .profile-desc h6 {
-    margin-right: 0;
-  }
-
-  .image-wrap {
-    padding: 1px;
-    border-radius: 2px;
-    margin-bottom: 20px;
-  }
-
-  .profile-desc a.btn {
-    float: right;
-  }
-
-  .image-wrap img {
-    width: auto;
-  }
-
-  .profile-img {
-    width: 100%;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .profile-desc .right-text {
-    margin-top: 0;
-  }
-}
-
-
-/* ==========================
-*  point顯示當期主題文章
-============================*/
-
-.popular {
-  padding: 70px 0 90px;
-  background-size: 100%;
+.media {
+  padding: 1rem;
 }

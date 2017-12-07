@@ -3,7 +3,12 @@ body {
   /* font-size: 1.2rem; */
 }
 
-nav#news{
+.container {
+  max-width: 1270px;
+  width: 94%;
+}
+
+nav#news {
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.5);
 }
@@ -21,6 +26,28 @@ footer {
 
 .footer {
   margin-top: 100px;
+}
+/*==================================
+* Bootstrap 網格調整
+*===================================*/
+
+.container {
+  max-width: 1270px;
+  width: 94%;
+}
+
+
+/* 清除列的空間 */
+
+.row.no-gutter {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.row.no-gutter [class*="col-"]:not(:first-child),
+.row.no-gutter [class*="col-"]:not(:last-child) {
+  padding-right: 0;
+  padding-left: 0;
 }
 
 
@@ -199,3 +226,179 @@ div.bottom-shadow:after {
 }
 /* //article.title */
 /****** //首頁最新文章區塊 ******/
+
+/* ==========================
+*   Hero
+============================*/
+
+.hero {
+  padding-top: 12%;
+  padding-bottom: 10%;
+  text-align: center;
+  position: relative;
+}
+
+.hero h1 {
+  /* font-family: "Give You Glory", cursive; */
+  color: #fff;
+  font-size: 3.7em;
+  font-weight: 700;
+}
+
+.hero:before {
+  content: "";
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+  background-color: rgba(7, 6, 29, 0.37);
+}
+
+.hero .hero-inner {
+  position: relative;
+  z-index: 1;
+}
+
+
+
+
+/* ==========================
+*  point當期主題區塊
+============================*/
+
+.inner-page-hero {
+  padding-top: 5%;
+  padding-bottom: 5%;
+}
+
+
+/********* profile banner part ***********/
+
+.profile-banner figure img {
+  width: 100%;
+}
+
+.image-wrap {
+  border-radius: 2px;
+  padding: 10px;
+  float: left;
+  background: #fff;
+}
+
+.image-wrap figure {
+  background: #fff;
+  border-radius: 2px;
+  display: block;
+  overflow: hidden;
+  float: left;
+  margin-bottom: 0;
+}
+
+.image-wrap figure img {
+  max-width: 100%;
+  display: block;
+}
+
+.profile p {
+  color: #fff;
+}
+
+.banner figure {
+  margin-bottom: 0;
+}
+
+.profile-desc h6 a {
+  font-size: 26px;
+  line-height: 31px;
+  color: #fff;
+}
+
+.profile .right-text {
+}
+
+.profile-img {
+  width: 24.7%;
+}
+
+.profile .right-text span {
+  margin-bottom: 8px;
+  display: block;
+}
+
+.profile-desc h6 {
+  display: inline-block;
+  margin-right: 3rem;
+  margin-bottom: 10px;
+}
+
+.profile-desc a.btn {
+  display: inline-block;
+  padding: 3px 20px;
+  background-color: #82b21c;
+  vertical-align: text-bottom;
+  font-size: 13px;
+  color: #fff;
+}
+
+.profile-desc .right-text {
+  width: 100%;
+  border-right: 0;
+  color: rgba(255, 255, 255, .5);
+  margin-top: 30px;
+}
+
+.profile-desc .nav-item a {
+  color: #fff;
+}
+
+.profile-desc .nav-item.ratings a span i {
+  color: #ffd953;
+  font-size: 16px;
+}
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .profile-desc .right-text {
+    margin-top: 0;
+  }
+
+  .profile-desc h6 {
+    margin-right: 0;
+  }
+
+  .image-wrap {
+    padding: 1px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+  }
+
+  .profile-desc a.btn {
+    float: right;
+  }
+
+  .image-wrap img {
+    width: auto;
+  }
+
+  .profile-img {
+    width: 100%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .profile-desc .right-text {
+    margin-top: 0;
+  }
+}
+
+
+/* ==========================
+*  point顯示當期主題文章
+============================*/
+
+.popular {
+  padding: 70px 0 90px;
+  background-size: 100%;
+}

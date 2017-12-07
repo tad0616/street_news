@@ -207,6 +207,7 @@ div.bottom-shadow:after {
 
 .latest-post h4 {
   color: #fff !important;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 1);
   margin: 0;
   font-weight: 700;
 }

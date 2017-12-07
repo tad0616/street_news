@@ -8,164 +8,127 @@
 <body>
     {include file="nav.tpl"}
     <!-- 開始 -->
-    <!-- 當期市井觀點 -->
-    <section class="hero bg-image" data-image-src="http://placehold.it/1670x680">
-        <div class="hero-inner">
-            <div class="container text-center hero-text font-white">
-                <h1>我是當期主題</h1>
-                <hr>
-                <h5 class="font-white space-xs">主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述</h5>
-            </div>
-        </div>
-    </section>
-    <!-- //當期市井觀點 -->
 
-
-    <!-- 顯示當期市井觀點文章 -->
-    <section class="popular">
+    <!-- 當期市井觀點區塊 -->
+    <section class="jumbotron text-center" style="background: url(uploads/cover_4.png) bottom right/ cover no-repeat fixed #000;">
         <div class="container">
-            <div class="title text-xs-center m-b-30">
-                <h2>Popular This Month In Your City</h2>
-                <p class="lead">The easiest way to your favourite food</p>
-            </div>
-            <div class="row">
-                <!-- Each popular food item starts -->
-                <div class="col-xs-12 col-sm-6 col-md-4 food-item">
-                    <div class="food-item-wrap">
-                        <div class="figure-wrap bg-image" data-image-src="http://placehold.it/380x210">
-                            <div class="distance">
-                                <i class="fa fa-pin"></i>1240m</div>
-                            <div class="rating pull-left">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="review pull-right">
-                                <a href="#">198 reviews</a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h5>
-                                <a href="profile.html">The South"s Best Fried Chicken</a>
-                            </h5>
-                            <div class="product-name">Fried Chicken with cheese</div>
-                            <div class="price-btn-block">
-                                <span class="price">$ 15,99</span>
-                                <a href="#" class="btn theme-btn-dash pull-right">Order Now</a>
-                            </div>
-                        </div>
-                        <div class="restaurant-block">
-                            <div class="left">
-                                <a class="pull-left" href="profile.html">
-                                    <img src="http://placehold.it/50x46" alt="Restaurant logo" /> </a>
-                                <div class="pull-left right-text">
-                                    <a href="#">Chicken Restaurant</a>
-                                    <span>68 5th Avenue New York</span>
-                                </div>
-                            </div>
-                            <div class="right-like-part pull-right">
-                                <i class="fa fa-heart-o"></i>
-                                <span>48</span>
-                            </div>
-                        </div>
+            <h1>我是當期主題</h1>
+            <p>主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述主題描述</p>
+            <hr>
+            <p>更新日期：</p>
+            <button type="button" class="btn btn-lg btn-block btn-light bottom-shadow">進入專題</button>
+        </div>
+    </section>
+    <!-- //當期市井觀點區塊 -->
+
+
+    <!-- 顯示當期市井觀點文章區塊 -->
+    <section>
+        <div class="album text-muted ">
+            <div class="container">
+                <div class="row">
+                    <!-- 抓取文章1 -->
+                    <div class="card col-sm top-shadow bottom-shadow">
+                        <img src="https://picsum.photos/400/300?image={$article@index}" data-holder-rendered="true">
+                        <p class="card-text jumbotron-heading">文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容</p>
+                    </div>
+                    <!-- 抓取文章2 -->
+                    <div class="card col-sm top-shadow bottom-shadow">
+                        <img src="https://picsum.photos/400/300?image={$article@index}" data-holder-rendered="true">
+                        <p class="card-text jumbotron-heading">文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容</p>
+                    </div>
+                    <!-- 抓取文章3 -->
+                    <div class="card col-sm top-shadow bottom-shadow">
+                        <img src="https://picsum.photos/400/300?image={$article@index}" data-holder-rendered="true">
+                        <p class="card-text jumbotron-heading">文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容文章內容</p>
                     </div>
                 </div>
-                <!-- Each popular food item starts -->
-                <!-- Each popular food item starts -->
-                <div class="col-xs-12 col-sm-6 col-md-4 food-item">
-                    <div class="food-item-wrap">
-                        <div class="figure-wrap bg-image" data-image-src="http://placehold.it/380x210">
-                            <div class="distance">
-                                <i class="fa fa-pin"></i>1240m</div>
-                            <div class="rating pull-left">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="review pull-right">
-                                <a href="#">198 reviews</a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h5>
-                                <a href="profile.html">The South"s Best Fried Chicken</a>
-                            </h5>
-                            <div class="product-name">Fried Chicken with cheese</div>
-                            <div class="price-btn-block">
-                                <span class="price">$ 18,49</span>
-                                <a href="#" class="btn theme-btn-dash pull-right">Order Now</a>
-                            </div>
-                        </div>
-                        <div class="restaurant-block">
-                            <div class="left">
-                                <a class="pull-left" href="profile.html">
-                                    <img src="http://placehold.it/50x46" alt="Restaurant logo" /> </a>
-                                <div class="pull-left right-text">
-                                    <a href="#">Chicken Restaurant</a>
-                                    <span>68 5th Avenue New York</span>
-                                </div>
-                            </div>
-                            <div class="right-like-part pull-right">
-                                <i class="fa fa-heart-o"></i>
-                                <span>48</span>
-                            </div>
-                        </div>
+                <div class="col-lg">
+                    <div>
+                        <button type="button" class="btn btn-secondary btn-lg btn-block">
+                            更多專題文章</button>
                     </div>
                 </div>
-                <!-- Each popular food item starts -->
-                <!-- Each popular food item starts -->
-                <div class="col-xs-12 col-sm-6 col-md-4 food-item">
-                    <div class="food-item-wrap">
-                        <div class="figure-wrap bg-image" data-image-src="http://placehold.it/380x210">
-                            <div class="distance">
-                                <i class="fa fa-pin"></i>1240m</div>
-                            <div class="rating pull-left">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                            </div>
-                            <div class="review pull-right">
-                                <a href="#">198 reviews</a>
-                            </div>
-                        </div>
-                        <div class="content">
-                            <h5>
-                                <a href="profile.html">The South"s Best Fried Chicken</a>
-                            </h5>
-                            <div class="product-name">Fried Chicken with cheese</div>
-                            <div class="price-btn-block">
-                                <span class="price">$ 21,19</span>
-                                <a href="#" class="btn theme-btn-dash pull-right">Order Now</a>
-                            </div>
-                        </div>
-                        <div class="restaurant-block">
-                            <div class="left">
-                                <a class="pull-left" href="profile.html">
-                                    <img src="http://placehold.it/50x46" alt="Restaurant logo" /> </a>
-                                <div class="pull-left right-text">
-                                    <a href="#">Chicken Restaurant</a>
-                                    <span>68 5th Avenue New York</span>
-                                </div>
-                            </div>
-                            <div class="right-like-part pull-right">
-                                <i class="fa fa-heart-o"></i>
-                                <span>48</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Each popular food item starts -->
             </div>
         </div>
     </section>
-    <!-- //顯示當期市井觀點文章 -->
-    <!-- 結束 -->
+    <!-- //顯示當期市井觀點文章區塊 -->
+
+    <!-- 歷史主題區塊 -->
+    <section id="history">
+        <div class="container">
+            <div class="row">
+                <!-- 歷史主題1 -->
+                <div class="media">
+                    <img class="align-self-center mr-3 cover" src="https://picsum.photos/200/150?image={$article@index}" style="width: 200px; height: 150px;"
+                        alt="Generic placeholder image">
+                    <span class="badge badge-pill badge-danger">
+                        最後更新：2017.11.11</span>
+                    <div class="media-body col-sm">
+                        <h1 class="mt-0">我是歷史主題</h1>
+                        <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus
+                            et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                    </div>
+                </div>
+                <!-- //歷史主題 -->
+                <!-- 歷史主題2 -->
+                <div class="media">
+                    <img class="align-self-center mr-3 cover" src="https://picsum.photos/200/150?image={$article@index}" style="width: 200px; height: 150px;"
+                        alt="Generic placeholder image">
+                    <span class="badge badge-pill badge-danger">
+                        最後更新：2017.11.11</span>
+                    <div class="media-body col-sm">
+                        <h1 class="mt-0">我是歷史主題</h1>
+                        <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus
+                            et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                    </div>
+                </div>
+                <!-- //歷史主題 -->
+                <!-- 歷史主題3 -->
+                <div class="media">
+                    <img class="align-self-center mr-3 cover" src="https://picsum.photos/200/150?image={$article@index}" style="width: 200px; height: 150px;"
+                        alt="Generic placeholder image">
+                    <span class="badge badge-pill badge-danger">
+                        最後更新：2017.11.11</span>
+                    <div class="media-body col-sm">
+                        <h1 class="mt-0">我是歷史主題</h1>
+                        <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus
+                            et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                    </div>
+                </div>
+                <!-- //歷史主題 -->
+            </div>
+        </div>
+    </section>
+    <!-- //歷史主題區塊 -->
+
+    <!-- 頁碼 -->
+    <nav aria-label="Page navigation example">
+        <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+                <span class="page-link">«</span>
+            </li>
+            <li class="page-item active">
+                <span class="page-link">1
+                    <!-- 當前位置 -->
+                    <span class="sr-only">(current)</span>
+                </span>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">2</a>
+            </li>
+
+            <li class="page-item">
+                <a class="page-link" href="#">3</a>
+            </li>
+            <li class="page-item">
+                <a class="page-link" href="#">»</a>
+            </li>
+        </ul>
+    </nav>
+    <!-- //頁碼 -->
+
+    <!-- //結束 -->
     {include file="footer.tpl"}
 </body>
 

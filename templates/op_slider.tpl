@@ -2,7 +2,7 @@
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-wrap="true" data-pause="false">
         <div class="carousel-inner">
             {foreach $allslide as $slider} {assign var="cover" value="uploads/cover_`$slider.sn`.png"} {if file_exists($cover)}
-            <div class="carousel-item img-container" style="background-image:url({$cover}">
+            <div class="carousel-item img-container" style="background-image:url({$cover})">
                 {else}
                 <div class="carousel-item img-container" style="background-image:url(images/pic2.jpg)">
                     {/if}

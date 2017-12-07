@@ -1,3 +1,4 @@
+
 <div class="container article">
     <h1>{$article.title}</h1>
     <div class="row">
@@ -17,10 +18,13 @@
     <!-- AddToAny BEGIN -->
     <div class="a2a_kit a2a_kit_size_32 a2a_default_style">
         <!-- <a class="a2a_dd" href="https://www.addtoany.com/share"></a> -->
+
+        <a class="a2a_button_printfriendly"></a>
         <a class="a2a_button_facebook"></a>
         <a class="a2a_button_twitter"></a>
         <a class="a2a_button_line"></a>
     </div>
+    
     <div style="clear: both"></div>
     
     {if isset($previous.sn) or isset($next.sn)}

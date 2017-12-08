@@ -1,15 +1,15 @@
 <!-- 當期市井觀點區塊 -->
-{$topic=$topic_list[0]}{assign var="cover" value="uploads/cove_`$topic.topic.sn`.png"} {if file_exists($cover)}
+{$topic=$topic_list[0]}{assign var="cover" value="uploads/cover_`$topic.topic_sn`.png"} {if file_exists($cover)}
 <section class="jumbotron text-center" style="background: url({$cover}) bottom right/ cover no-repeat fixed #000;">
     {else}
     <section class="jumbotron text-center" style="background: url(https://picsum.photos/400/300?image={$topic@index}) bottom right/ cover no-repeat fixed #000;">
         {/if} {if $topic}
         <div class="container">
             <h1>{$topic.topic_title}</h1>
-            <p>{$topic.topic_type}</p>
+            <p>{$topic.topic_description}</p>
             <hr>
             <p>更新日期：{$all[0].update_time}</p>
-            <a href="#" class="btn btn-lg btn-block btn-light bottom-shadow" role="button">進入專題</a>
+            <a href="#" class="btn btn-lg btn-block btn-light bottom-shadow" role="button">進入本期主題焦點</a>
         </div>
         {else}
         <h1>尚無內容</h1>

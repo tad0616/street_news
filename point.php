@@ -2,7 +2,7 @@
 require_once 'header.php';
 $page_title = '市井觀點';
 define("NUM_OF_LIST_ARTICLE", 3); // number of articles to be displayed at a time
-define("TOPIC_TYPE", "專題"); // distinguish from "類別"
+define("TOPIC_TYPE", "主題"); // distinguish from "類別"
 define("TOPIC_STATUS_OPEN", 0); // topic opening for comment
 define("TOPIC_STATUS_ACTIVE", 1); // active topic
 define("TOPIC_STATUS_EFFECTIVE", 2); // effective topics
@@ -38,8 +38,7 @@ function list_point()
     $topic_list = array();
     $all        = array();
     // find out the active topic and stored as the first array element.
-    $sql = "SELECT * FROM `topic` WHERE `topic_type`='" . TOPIC_TYPE . "' and `topic_status`= '" . TOPIC_STATUS_ACTIVE . "'";
-    print_r($sql);
+    $sql    = "SELECT * FROM `topic` WHERE `topic_type`='" . TOPIC_TYPE . "' and `topic_status`= '" . TOPIC_STATUS_ACTIVE . "'";
     $result = $db->query($sql) or die($db->error);
     if ($data = $result->fetch_assoc()) {
         $topic_list[0] = $data;

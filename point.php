@@ -36,24 +36,24 @@ function list_point()
     $config   = HTMLPurifier_Config::createDefault();
     $purifier = new HTMLPurifier($config);
 
-    $topic_list = array();
-    $all        = array();
+    $topic     = array();
+    $history_topics = array();
+    $all            = array();
     // find out the active topic and stored as the first array element.
     // 找出本期主題並存儲為第一個數組元素。
-    $sql    = "SELECT * FROM `topic` WHERE `topic_type`='" . TOPIC_TYPE . "' and `topic_status`= '" . TOPIC_STATUS_ACTIVE . "'";
-    $result = $db->query($sql) or die($db->error);
-    if ($data = $result->fetch_assoc()) {
-        $topic_list[0] = $data;
-        $topic_sn      = $data['topic_sn']; //the topic_sn of active topic本期主題的topic_sn
-    }
+    $sql        = "SELECT * FROM `topic` WHERE `topic_type`='" . TOPIC_TYPE . "' and `topic_status`= '" . TOPIC_STATUS_ACTIVE . "'";
+    $result     = $db->query($sql) or die($db->error);
+    $topic = $result->fetch_assoc();
+    $topic_sn   = $topic['topic_sn']; //the topic_sn of active topic本期主題的topic_sn
+
     // Retrieve out all opened topics behind active topic
     // 檢索出本期主題背後的所有已打開的主題
     $sql    = "SELECT * FROM `topic` WHERE `topic_type`='" . TOPIC_TYPE . "' and `topic_status`= '" . TOPIC_STATUS_EFFECTIVE . "'";
     $result = $db->query($sql) or die($db->error);
-    $i      = 1;
+    $i      = 0;
     while ($data = $result->fetch_assoc()) {
         $data['topic_description'] = $purifier->purify($data['topic_description']);
-        $topic_list[$i]            = $data;
+        $history_topics[$i]        = $data;
         // $all[$i]['summary'] = mb_substr(strip_tags($data['content']), 0, 90);
         $i++;
     }
@@ -74,7 +74,9 @@ function list_point()
     // var_export($all);
     // die();
     $smarty->assign('all', $all);
-    $smarty->assign('topic_list', $topic_list);
+    $smarty->assign('topic', $topic);
+    $smarty->assign('history_topics', $history_topics);
+
 }
 // list out active topic and its related articles
 // 列出本期主題及其相關文章

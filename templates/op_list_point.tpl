@@ -1,6 +1,3 @@
-<!-- 當期市井觀點區塊 -->
-{$topic=$topic_list[0]} 
-
 <!-- 抓第一篇文章底圖來當作封面 -->
 {assign var="cover" value="uploads/cover_`$all.0.sn`.png"}
 
@@ -61,46 +58,21 @@
     <section id="history">
         <div class="container">
             <div class="row">
-                <!-- 歷史主題1 -->
-                <div class="media">
-                    <img class="align-self-center mr-3 cover" src="https://picsum.photos/200/150?image={$article@index}" style="width: 200px; height: 150px;"
-                        alt="Generic placeholder image">
-                    <span class="badge badge-pill badge-danger">
-                        最後更新：&nbsp;{$article.update_time}</span>
-                    <div class="media-body col-sm">
-                        <h1 class="mt-0">我是歷史主題</h1>
-                        <p>Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus
-                            et magnis dis parturient montes, nascetur ridiculus mus.</p>
-                    </div>
-                </div>
+                {foreach $history_topics as $key => $topic}
+                    <div class="media">
+                        <img class="align-self-center mr-3 cover" src="https://picsum.photos/200/150?image={$article@index}" style="width: 200px; height: 150px;"
+                            alt="Generic placeholder image">
+                        <span class="badge badge-pill badge-danger">
+                            最後更新：&nbsp;{$topic.update_time}</span>
+                        <div class="media-body col-sm">
+                            <h1 class="mt-0">{$topic.topic_title}</h1>
+                             {$topic.topic_description}
+                        </div>
+                    </div>  
+                {/foreach}
                 <!-- //歷史主題 -->
             </div>
         </div>
     </section>
     <!-- //歷史主題區塊 -->
 
-    <!-- 頁碼 -->
-    <nav aria-label="Page navigation example">
-        <ul class="pagination justify-content-center">
-            <li class="page-item disabled">
-                <span class="page-link">«</span>
-            </li>
-            <li class="page-item active">
-                <span class="page-link">1
-                    <!-- 當前位置 -->
-                    <span class="sr-only">(current)</span>
-                </span>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">2</a>
-            </li>
-
-            <li class="page-item">
-                <a class="page-link" href="#">3</a>
-            </li>
-            <li class="page-item">
-                <a class="page-link" href="#">»</a>
-            </li>
-        </ul>
-    </nav>
-    <!-- //頁碼 -->

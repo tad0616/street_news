@@ -57,13 +57,15 @@ require_once 'footer.php';
 function insert_article()
 {
     //sumi add topic_sn
+    //ellen add sort
 
     global $db;
     $title    = $db->real_escape_string($_POST['title']);
     $content  = $db->real_escape_string($_POST['content']);
     $username = $db->real_escape_string($_POST['username']);
     $topic_sn = $db->real_escape_string($_POST['sel_topic_sn']);
-    $sql      = "INSERT INTO `article` (`title`, `content`, `username`, `create_time`, `update_time`,`topic_sn`) VALUES ('{$title}', '{$content}', '{$username}', NOW(), NOW(),'{$topic_sn}')";
+    $sort = $db->real_escape_string($_POST['sort_num']); 
+    $sql      = "INSERT INTO `article` (`title`, `content`, `username`, `create_time`, `update_time`,`topic_sn`,`sort`) VALUES ('{$title}', '{$content}', '{$username}', NOW(), NOW(),'{$topic_sn}','{$sort}')";
     $db->query($sql) or die($db->error);
     $sn = $db->insert_id;
 
@@ -71,6 +73,7 @@ function insert_article()
 
     return $sn;
 }
+
 
 function delete_article($sn)
 {
@@ -89,14 +92,16 @@ function delete_article($sn)
 function update_article($sn)
 {
     //sumi add topic_sn
+    //ellen add sort
 
     global $db;
     $title    = $db->real_escape_string($_POST['title']);
     $content  = $db->real_escape_string($_POST['content']);
     $username = $db->real_escape_string($_POST['username']);
     $topic_sn = $db->real_escape_string($_POST['sel_topic_sn']);
+    $sort = $db->real_escape_string($_POST['sort_num']); 
 
-    $sql = "update `article` Set `title`='{$title}', `content`= '{$content}',`update_time`=NOW() ,`topic_sn` ='{$topic_sn}' WHERE sn='{$sn}' ";
+    $sql = "update `article` Set `title`='{$title}', `content`= '{$content}',`update_time`=NOW() ,`topic_sn` ='{$topic_sn}',`sort` ='{$sort}' WHERE sn='{$sn}' ";
 
     $db->query($sql) or die($db->error);
 

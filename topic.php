@@ -66,7 +66,7 @@ function insert_topic()
     $sql = "INSERT INTO `topic` (`topic_title`, `topic_type`, `topic_description`, `topic_status`, `username`) VALUES ('{$topic_title}', '{$topic_type}', '{$topic_description}', '{$topic_status}' ,'{$_SESSION['username']}')";
     $db->query($sql) or die($db->error);
     $sn = $db->insert_id;
-
+    upload_pic($sn);
     return $sn;
 }
 //刪除類別
@@ -95,6 +95,7 @@ function update_topic($sn)
     $sql = "UPDATE `topic` SET `topic_title`='{$topic_title}', `topic_type`='{$topic_type}', `topic_description`='{$topic_description}',`topic_status`='{$topic_status}'  WHERE `topic_sn`='{$sn}' ";
 
     $db->query($sql) or die($db->error);
+    upload_pic($sn);
 }
 
 //讀出單一類別
@@ -111,4 +112,32 @@ function show_topic($sn)
     $data                      = $result->fetch_assoc();
     $data['topic_description'] = $purifier->purify($data['topic_description']);
     $smarty->assign('topic', $data);
+}
+
+function upload_pic($sn)
+{
+
+    if (isset($_FILES)) {
+        require_once 'class.upload.php';
+        $foo = new Upload($_FILES['pic']);
+        if ($foo->uploaded) {
+            // save uploaded image with a new name
+            $foo->file_new_name_body = 'topic_cover_' . $sn;
+            $foo->file_overwrite     = true;
+            $foo->image_resize       = true;
+            $foo->image_convert      = png;
+            $foo->image_x            = 1200;
+            $foo->image_ratio_y      = true;
+            $foo->Process('uploads/');
+            if ($foo->processed) {
+                $foo->file_new_name_body = 'topic_thumb_' . $sn;
+                $foo->file_overwrite     = true;
+                $foo->image_resize       = true;
+                $foo->image_convert      = png;
+                $foo->image_x            = 400;
+                $foo->image_ratio_y      = true;
+                $foo->Process('uploads/');
+            }
+        }
+    }
 }

@@ -1,6 +1,7 @@
 <table class="table table-bordered table-hover table-striped">
     <thead>
         <tr class="info">
+            <th>縮圖</th>
             <th>類別編號</th>
             <th>類別或專題名稱</th>
             <th>種類</th>
@@ -14,6 +15,12 @@
     <tbody>
         {foreach $all as $topic}
         <tr>
+            <td>
+                {assign var="cover" value="uploads/topic_thumb_`$topic.topic_sn`.png"}
+                {if file_exists($cover)}
+                    <img src="{$cover}" alt="{$article.title}" class="rounded cover img-responsive" style="width:80px;height:80px;">      
+                {/if}
+            </td>
             <td>
                 {$topic.topic_sn}
             </td>

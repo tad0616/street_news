@@ -1,23 +1,24 @@
 <?php
 require_once 'header.php';
 $page_title = '市井觀點';
-define("NUM_OF_LIST_ARTICLE", 3); // number of articles to be displayed once
+define("NUM_OF_LIST_ARTICLE", 3); // number of articles to be displayed at a time
 define("TOPIC_TYPE", "專題"); // distinguish from "類別"
-define("TOPIC_STATUS_OPEN", 0); // topic open for comment
+define("TOPIC_STATUS_OPEN", 0); // topic opening for comment
 define("TOPIC_STATUS_ACTIVE", 1); // active topic
 define("TOPIC_STATUS_EFFECTIVE", 2); // effective topics
 define("TOPIC_STATUS_CLOSED", 3); // topics closed
+
 $op = isset($_REQUEST['op']) ? filter_var($_REQUEST['op']) : '';
 $sn = isset($_REQUEST['sn']) ? (int) $_REQUEST['sn'] : 0;
 $topic_sn = isset($_REQUEST['topic_sn']) ? (int) $_REQUEST['topic_sn'] : 0;
 switch ($op) {
     default:
         if (!$topic_sn and !$sn) {
-            $op = 'list_topic';
+            $op = 'list_point';
             list_point();
         } elseif ($topic_sn) {
-            $op = 'show_topic';
-            show_topic($topic_sn);
+            $op = 'show_point';
+            show_point($topic_sn);
         } else {
             $op = 'show_article';
             show_article($sn);
@@ -68,12 +69,15 @@ function list_point()
     // var_export($all);
     // die();
     $smarty->assign('all', $all);
+    $smarty->assign('topic_list', $topic_list);
 }
 // list out active topic and its related articles
-function show_topic($topic_sn)
+function show_point($topic_sn)
 {
     global $db, $smarty;
     $all = array();
+    $topic_list=array();
+    
     require_once 'HTMLPurifier/HTMLPurifier.auto.php';
     $config = HTMLPurifier_Config::createDefault();
     $purifier = new HTMLPurifier($config);
@@ -96,5 +100,6 @@ function show_topic($topic_sn)
     // var_export($topic);
     // var_export($all);
     // die();
-    $smarty->assign('article', $data);
+    $smarty->assign('topic_list', $topic_list);
+    $smarty->assign('all', $all);
 }

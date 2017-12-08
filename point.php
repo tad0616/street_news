@@ -59,7 +59,7 @@ function list_point()
     }
     // Retrieve out three last articles related to active topic from article table
     // 從文章表中檢索出與本期主題相關的最後三篇文章
-    $sql    = "SELECT * FROM `article` WHERE `topic_sn`='{$topic_sn}' ORDER BY `update_time` DESC";
+    $sql    = "SELECT * FROM `article` WHERE `topic_sn`='{$topic_sn}' ORDER BY `sort`";
     $result = $db->query($sql) or die($db->error);
     for ($i = 0; $i < NUM_OF_LIST_ARTICLE; $i++) {
         if ($data = $result->fetch_assoc()) {

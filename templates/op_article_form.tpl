@@ -45,10 +45,10 @@
         <input type="file " class="form-control " name="pic " id="pic " placeholder="請上傳一張封面圖 ">
     </div>
     <div class="text-center ">
-        <input type="hidden " name="op " value="insert ">
-        <input type="hidden " name="username " value="{$smarty.session.username} ">
-        <input type="hidden " name="topic_sn " value={$topic.topic_sn}>
-        <button type="submit " class="btn btn-primary ">儲存</button>
+        <input type="hidden" name="op " value="insert ">
+        <input type="hidden" name="username " value="{$smarty.session.username} ">
+        <input type="hidden" name="topic_sn " value={$topic.topic_sn}>
+        <button type="submit" class="btn btn-primary ">儲存</button>
     </div>
 </form>
 

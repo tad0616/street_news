@@ -8,8 +8,8 @@
             <h1>{$topic.topic_title}</h1>
             <p>{$topic.topic_description}</p>
             <hr>
-            <p>更新日期：{$all[0].update_time}</p>
-            <a href="#" class="btn btn-lg btn-block btn-light bottom-shadow" role="button">進入本期主題焦點</a>
+            <p>更新日期：{$article.update_time}</p>
+            <a href="point.php?sn={$topic.topic_sn}" class="btn btn-lg btn-block btn-light bottom-shadow" role="button">進入本期主題焦點</a>
         </div>
         {else}
         <h1>尚無內容</h1>
@@ -17,20 +17,21 @@
     </section>
     <!-- //當期市井觀點區塊 -->
     <!-- 顯示當期市井觀點文章區塊 -->
+
     <section>
         <div class="album text-muted">
             <div class="container">
                 <div class="row">
                     {foreach $all as $article}
-                    <div class="card col-sm top-shadow bottom-shadow">
+                    <div class="card col-sm-4 top-shadow bottom-shadow">
                         <a href="point.php?sn={$article.sn}" style="text-decoration:none;">
-                            {assign var="cover" value="uploads/thumb_`$article_sn`.png"} {if file_exists($cover)}
-                            <img src="{$cover}" alt="{$article_title}" class="rounded cover" data-holder-rendered="true"> {else}
-                            <img src="https://picsum.photos/400/300?image={$topic@index}" alt="{$article_title}" class="rounded cover" data-holder-rendered="true"> {/if}
+                            {assign var="cover" value="uploads/thumb_`$article.sn`.png"} {if file_exists($cover)}
+                            <img src="{$cover}" alt="{$article.title}" class="rounded cover" data-holder-rendered="true"> {else}
+                            <img src="https://picsum.photos/400/300?image={$topic@index}" alt="{$article.title}" class="rounded cover" data-holder-rendered="true"> {/if}
                             <div class="latest-post">
-                                <h4>{$article_title}}</h4>
+                                <h4>{$article.title}</h4>
                             </div>
-                            <p class="card-text jumbotron-heading">{$article_type}</p>
+                            <p class="card-text jumbotron-heading">{$article.summary}</p>
                         </a>
                     </div>
                     {foreachelse}

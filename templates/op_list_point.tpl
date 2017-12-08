@@ -1,21 +1,18 @@
 <!-- 當期市井觀點區塊 -->
-{$topic=$topic_list[0]}{assign var="cover" value="uploads/cove_`$topic.topic_sn`.png"} {if file_exists($cover)}
+{$topic=$topic_list[0]}{assign var="cover" value="uploads/cove_`$topic.topic.sn`.png"} {if file_exists($cover)}
 <section class="jumbotron text-center" style="background: url({$cover}) bottom right/ cover no-repeat fixed #000;">
     {else}
     <section class="jumbotron text-center" style="background: url(https://picsum.photos/400/300?image={$topic@index}) bottom right/ cover no-repeat fixed #000;">
         {/if} {if $topic}
         <div class="container">
-            <!-- {foreach $all as $topic} -->
             <h1>{$topic.topic_title}}</h1>
             <p>{$topic.topic_type}</p>
             <hr>
             <p>更新日期：{$all[0].update_time}</p>
             <a href="#" class="btn btn-lg btn-block btn-light bottom-shadow" role="button">進入專題</a>
         </div>
-        <!-- {foreachelse} -->
         {else}
         <h1>尚無內容</h1>
-        <!-- {/foreach}  -->
         {/if}
     </section>
     <!-- //當期市井觀點區塊 -->
@@ -26,7 +23,7 @@
                 <div class="row">
                     {foreach $all as $article}
                     <div class="card col-sm top-shadow bottom-shadow">
-                        <a href="point.php?sn={$article_sn}" style="text-decoration:none;">
+                        <a href="point.php?sn={$article.sn}" style="text-decoration:none;">
                             {assign var="cover" value="uploads/thumb_`$article_sn`.png"} {if file_exists($cover)}
                             <img src="{$cover}" alt="{$article_title}" class="rounded cover" data-holder-rendered="true"> {else}
                             <img src="https://picsum.photos/400/300?image={$topic@index}" alt="{$article_title}" class="rounded cover" data-holder-rendered="true"> {/if}
@@ -43,7 +40,7 @@
 
                 <div class=" col-lg ">
                     <div>
-                        <a href="point.php?sn={$topic.topic_sn} " class="btn btn-secondary btn-lg btn-block " role="button ">
+                        <a href="point.php?sn={$topic.topic.sn} " class="btn btn-secondary btn-lg btn-block " role="button ">
                             更多專題文章</a>
                     </div>
                 </div>

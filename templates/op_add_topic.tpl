@@ -34,6 +34,10 @@
         <input type="radio" id="topic_status4" name="topic_status" value="3">
         <label for="topic_status4">關閉</label>
     </div>
+    <div class="form-group">
+        <label for="pic" class="col-form-label sr-only">封面圖</label>
+        <input type="file" class="form-control" name="pic" id="pic" placeholder="請上傳一張封面圖">
+    </div>
     <div class="text-center">
         <input type="hidden" name="op" value="insert">
         <input type="hidden" name="username" value="{$smarty.session.username}">

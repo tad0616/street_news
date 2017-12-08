@@ -5,7 +5,7 @@
     <section class="jumbotron text-center" style="background: url(https://picsum.photos/400/300?image={$topic@index}) bottom right/ cover no-repeat fixed #000;">
         {/if} {if $topic}
         <div class="container">
-            <h1>{$topic.topic_title}}</h1>
+            <h1>{$topic.topic_title}</h1>
             <p>{$topic.topic_type}</p>
             <hr>
             <p>更新日期：{$all[0].update_time}</p>

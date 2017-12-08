@@ -1,20 +1,27 @@
 <!-- 當期市井觀點區塊 -->
-{$topic=$topic_list[0]}{assign var="cover" value="uploads/cover_`$topic.topic_sn`.png"} {if file_exists($cover)}
+{$topic=$topic_list[0]} 
+
+<!-- 抓第一篇文章底圖來當作封面 -->
+{assign var="cover" value="uploads/cover_`$all.0.sn`.png"}
+
+{if !file_exists($cover)}
+    {$cover = "https://picsum.photos/400/300?image=1"}
+{/if} 
+
 <section class="jumbotron text-center" style="background: url({$cover}) bottom right/ cover no-repeat fixed #000;">
-    {else}
-    <section class="jumbotron text-center" style="background: url(https://picsum.photos/400/300?image={$topic@index}) bottom right/ cover no-repeat fixed #000;">
-        {/if} {if $topic}
+    {if $topic}
         <div class="container">
             <h1>{$topic.topic_title}</h1>
             <p>{$topic.topic_description}</p>
             <hr>
-            <p>更新日期：{$article.update_time}</p>
-            <a href="point.php?sn={$topic.topic_sn}" class="btn btn-lg btn-block btn-light bottom-shadow" role="button">進入本期主題焦點</a>
+            <p>更新日期：{$all[0].update_time}</p>
+            <a href="point.php?topic_sn={$topic.topic_sn}" class="btn btn-lg btn-block btn-light bottom-shadow" role="button">進入本期主題焦點</a>
         </div>
-        {else}
+    {else}
         <h1>尚無內容</h1>
-        {/if}
-    </section>
+    {/if}
+</section>
+
     <!-- //當期市井觀點區塊 -->
     <!-- 顯示當期市井觀點文章區塊 -->
 

@@ -27,7 +27,7 @@
                 <div class="form-group row">
                     <label for="sort_num" class="col-sm-1-6 col-form-label">專題文章順序</label>
                     <div class="col-sm-1-6">
-                        <input type="number" min="0" class="form-control" name="sort_num" id="sort" placeholder="請輸入序號">
+                        <input type="number" style="padding:3px;" min="0" class="form-control" name="sort_num" id="sort" placeholder="請輸入序號">
                     </div>
                 </div>
             </td>

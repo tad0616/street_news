@@ -1,8 +1,8 @@
-<!-- 抓第一篇文章底圖來當作封面 -->
-{assign var="cover" value="uploads/cover_`$all.0.sn`.png"}
+<!-- 抓主題底圖來當作封面 -->
+{assign var="cover" value="uploads/topic_cover_`$topic.topic_sn`.png"}
 
 {if !file_exists($cover)}
-    {$cover = "https://picsum.photos/400/300?image=1"}
+    {$cover = "https://picsum.photos/400/300?random"}
 {/if} 
 
 <section class="jumbotron text-center" style="background: url({$cover}) bottom right/ cover no-repeat fixed #000;">
@@ -62,9 +62,13 @@
     <section id="history">
         <div class="container">
             <div class="row">
-                {foreach $history_topics as $key => $topic}
+                {foreach $history_topics as $topic}
+                    {assign var="cover" value="uploads/topic_cover_`$topic.topic_sn`.png"} 
+                    {if !file_exists($cover)} 
+                        {$cover = "https://picsum.photos/400/300?random"}
+                    {/if}
                     <div class="media">
-                        <img class="align-self-center mr-3 cover" src="https://picsum.photos/200/150?image={$article@index}" style="width: 200px; height: 150px;"
+                        <img class="align-self-center mr-3 cover" src="{$cover}" style="width: 200px; height: 150px;"
                             alt="Generic placeholder image">
                         <span class="badge badge-pill badge-danger">
                             最後更新：&nbsp;{$topic.update_time}</span>

@@ -70,8 +70,6 @@
                     <div class="media">
                         <img class="align-self-center mr-3 cover" src="{$cover}" style="width: 200px; height: 150px;"
                             alt="Generic placeholder image">
-                        <span class="badge badge-pill badge-danger">
-                            最後更新：&nbsp;{$topic.update_time}</span>
                         <div class="media-body col-sm">
                             <h1 class="mt-0">{$topic.topic_title}</h1>
                              {$topic.topic_description}

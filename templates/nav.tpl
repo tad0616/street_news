@@ -10,7 +10,7 @@
         <div class="navbar-nav mr-auto">
             <a href="index.php" class="nav-link text-white">首頁</a>
             <a href="focus.php" class="nav-link text-white">編輯精選</a>
-            <a href="index.php" class="nav-link text-white">街巷故事</a>
+            <a href="story.php" class="nav-link text-white">街巷故事</a>
             <a href="point.php" class="nav-link text-white">市井觀點</a>
             <a href="class.php" class="nav-link text-white">私房知識塾</a>
         </div>

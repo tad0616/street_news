@@ -4,7 +4,7 @@ $page_title = '市井觀點';
 define("NUM_OF_LIST_ARTICLE", 3); // number of articles to be displayed at a time
 define("TOPIC_TYPE", "主題"); // distinguish from "類別"
 define("TOPIC_STATUS_OPEN", 0); // topic opening for comment
-define("TOPIC_STATUS_ACTIVE", 1); // active topic
+define("TOPIC_STATUS_ACTIVE", "1"); // active topic
 define("TOPIC_STATUS_EFFECTIVE", 2); // effective topics
 define("TOPIC_STATUS_CLOSED", 3); // topics closed
 

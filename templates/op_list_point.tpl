@@ -37,20 +37,24 @@
                             </div>
                             <p class="card-text jumbotron-heading">{$article.summary}</p>
                         </a>
+                        <h4>{$topic.title}</h4>
                     </div>
                     {foreachelse}
                     <h1>尚無內容</h1>
                     {/foreach}
                 </div>
 
+                {if $have_more > 0}
                 <div class=" col-lg ">
                     <div>
                         <a href="point.php?sn={$topic.topic.sn} " class="btn btn-secondary btn-lg btn-block " role="button ">
                             更多專題文章</a>
                     </div>
                 </div>
+                {/if}
             </div>
         </div>
+
     </section>
     <!-- //顯示當期市井觀點文章區塊 -->
 

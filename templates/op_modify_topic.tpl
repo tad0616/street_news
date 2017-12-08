@@ -36,6 +36,10 @@
         {if $topic.topic_status=='3'}checked{/if}>
         <label for="topic_status4">關閉</label>
     </div>
+    <div class="form-group">
+        <label for="pic" class="col-form-label sr-only">封面圖</label>
+        <input type="file" class="form-control" name="pic" id="pic" placeholder="請上傳一張封面圖">
+    </div>
     <div class="text-center">
         <input type="hidden" name="sn" value="{$topic.topic_sn}">
         <input type="hidden" name="op" value="update">
